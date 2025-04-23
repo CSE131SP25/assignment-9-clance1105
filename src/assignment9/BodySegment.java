@@ -1,3 +1,4 @@
+// BodySegment.java
 package assignment9;
 
 import java.awt.Color;
@@ -11,7 +12,7 @@ public class BodySegment {
         this.x = x;
         this.y = y;
         this.size = size;
-        this.color = ColorUtils.solidColor();
+        this.color = ColorUtils.solidColor(); // Creative feature: colorful segments
     }
 
     public void draw() {

@@ -1,3 +1,4 @@
+// Food.java
 package assignment9;
 
 import java.awt.Color;
@@ -11,7 +12,7 @@ public class Food {
     public Food() {
         Random rand = new Random();
         this.x = FOOD_SIZE + (1 - 2 * FOOD_SIZE) * rand.nextDouble();
-        this.y = FOOD_SIZE + (1 - 2 * FOOD_SIZE) * rand.nextDouble();
+        this.y = FOOD_SIZE + (1 - 2 * FOOD_SIZE) * rand.nextDouble(); // Food respawns randomly
     }
 
     public void draw() {

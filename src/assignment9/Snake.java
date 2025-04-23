@@ -1,3 +1,4 @@
+// Snake.java
 package assignment9;
 
 import java.util.LinkedList;
@@ -12,7 +13,7 @@ public class Snake {
 
     public Snake() {
         segments = new LinkedList<>();
-        segments.add(new BodySegment(0.5, 0.5, SEGMENT_SIZE));
+        segments.add(new BodySegment(0.5, 0.5, SEGMENT_SIZE)); // Snake starts with 1 segment
         deltaX = 0;
         deltaY = 0;
     }
@@ -37,12 +38,12 @@ public class Snake {
         BodySegment head = segments.getFirst();
         double newX = head.getX() + deltaX;
         double newY = head.getY() + deltaY;
-        segments.addFirst(new BodySegment(newX, newY, SEGMENT_SIZE));
+        segments.addFirst(new BodySegment(newX, newY, SEGMENT_SIZE)); // Snake moves by adding head
 
         if (!shouldGrow) {
-            segments.removeLast();
+            segments.removeLast(); // If not growing, remove tail
         } else {
-            shouldGrow = false;
+            shouldGrow = false; // If growing, keep the tail (snake grows)
         }
     }
 
@@ -59,7 +60,7 @@ public class Snake {
         double distance = Math.sqrt(dx * dx + dy * dy);
 
         if (distance < SEGMENT_SIZE + Food.FOOD_SIZE) {
-            shouldGrow = true;
+            shouldGrow = true; // Snake will grow on next move
             return true;
         }
         return false;
@@ -69,6 +70,10 @@ public class Snake {
         BodySegment head = segments.getFirst();
         double x = head.getX();
         double y = head.getY();
-        return x >= 0 && x <= 1 && y >= 0 && y <= 1;
+        return x >= 0 && x <= 1 && y >= 0 && y <= 1; // Game ends if head leaves screen
+    }
+
+    public int getLength() {
+        return segments.size();
     }
 }
